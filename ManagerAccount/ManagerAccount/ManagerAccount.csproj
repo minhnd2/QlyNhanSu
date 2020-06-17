@@ -1,0 +1,579 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6C679555-B182-4CCD-9222-011D7F440D77}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ManagerAccount</RootNamespace>
+    <AssemblyName>ManagerAccount</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="index.html" />
+    <Content Include="pages\account\list.js" />
+    <Content Include="pages\common\serviceAPIs.js" />
+    <Content Include="pages\index.html" />
+    <Content Include="pages\login\login.html" />
+    <Content Include="pages\login\login.js" />
+    <Content Include="pages\account\list.html" />
+    <Content Include="resources\bootstrap-vue-icons.min.js" />
+    <Content Include="resources\bootstrap-vue.min.js" />
+    <Content Include="resources\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="resources\css\font-face.css" />
+    <Content Include="resources\css\theme.css" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-100.svg" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-100italic.svg" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-200.svg" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-200italic.svg" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-300.svg" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-300italic.svg" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-500.svg" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-500italic.svg" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-600.svg" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-600italic.svg" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-700.svg" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-700italic.svg" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-800.svg" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-800italic.svg" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-900.svg" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-900italic.svg" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-italic.svg" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-regular.svg" />
+    <Content Include="resources\images\bg-title-01.jpg" />
+    <Content Include="resources\images\bg-title-02.jpg" />
+    <Content Include="resources\images\icon\avatar-01.jpg" />
+    <Content Include="resources\images\icon\avatar-02.jpg" />
+    <Content Include="resources\images\icon\avatar-03.jpg" />
+    <Content Include="resources\images\icon\avatar-04.jpg" />
+    <Content Include="resources\images\icon\avatar-05.jpg" />
+    <Content Include="resources\images\icon\avatar-06.jpg" />
+    <Content Include="resources\images\icon\avatar-big-01.jpg" />
+    <Content Include="resources\images\icon\logo-blue.png" />
+    <Content Include="resources\images\icon\logo-mini.png" />
+    <Content Include="resources\images\icon\logo-white.png" />
+    <Content Include="resources\images\icon\logo.png" />
+    <Content Include="resources\images\icon\Untitled-1.jpg" />
+    <Content Include="resources\jquery-1.9.1.min.js" />
+    <Content Include="resources\jquery\AUTHORS.txt" />
+    <Content Include="resources\jquery\dist\core.js" />
+    <Content Include="resources\jquery\dist\jquery.js" />
+    <Content Include="resources\jquery\dist\jquery.min.js" />
+    <Content Include="resources\jquery\dist\jquery.slim.js" />
+    <Content Include="resources\jquery\dist\jquery.slim.min.js" />
+    <Content Include="resources\jquery\external\sizzle\dist\sizzle.js" />
+    <Content Include="resources\jquery\external\sizzle\dist\sizzle.min.js" />
+    <Content Include="resources\jquery\external\sizzle\LICENSE.txt" />
+    <Content Include="resources\jquery\LICENSE.txt" />
+    <Content Include="resources\jquery\src\ajax.js" />
+    <Content Include="resources\jquery\src\ajax\jsonp.js" />
+    <Content Include="resources\jquery\src\ajax\load.js" />
+    <Content Include="resources\jquery\src\ajax\parseXML.js" />
+    <Content Include="resources\jquery\src\ajax\script.js" />
+    <Content Include="resources\jquery\src\ajax\var\location.js" />
+    <Content Include="resources\jquery\src\ajax\var\nonce.js" />
+    <Content Include="resources\jquery\src\ajax\var\rquery.js" />
+    <Content Include="resources\jquery\src\ajax\xhr.js" />
+    <Content Include="resources\jquery\src\attributes.js" />
+    <Content Include="resources\jquery\src\attributes\attr.js" />
+    <Content Include="resources\jquery\src\attributes\classes.js" />
+    <Content Include="resources\jquery\src\attributes\prop.js" />
+    <Content Include="resources\jquery\src\attributes\support.js" />
+    <Content Include="resources\jquery\src\attributes\val.js" />
+    <Content Include="resources\jquery\src\callbacks.js" />
+    <Content Include="resources\jquery\src\core.js" />
+    <Content Include="resources\jquery\src\core\access.js" />
+    <Content Include="resources\jquery\src\core\camelCase.js" />
+    <Content Include="resources\jquery\src\core\DOMEval.js" />
+    <Content Include="resources\jquery\src\core\init.js" />
+    <Content Include="resources\jquery\src\core\nodeName.js" />
+    <Content Include="resources\jquery\src\core\parseHTML.js" />
+    <Content Include="resources\jquery\src\core\ready-no-deferred.js" />
+    <Content Include="resources\jquery\src\core\ready.js" />
+    <Content Include="resources\jquery\src\core\readyException.js" />
+    <Content Include="resources\jquery\src\core\stripAndCollapse.js" />
+    <Content Include="resources\jquery\src\core\support.js" />
+    <Content Include="resources\jquery\src\core\toType.js" />
+    <Content Include="resources\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="resources\jquery\src\css.js" />
+    <Content Include="resources\jquery\src\css\addGetHookIf.js" />
+    <Content Include="resources\jquery\src\css\adjustCSS.js" />
+    <Content Include="resources\jquery\src\css\curCSS.js" />
+    <Content Include="resources\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="resources\jquery\src\css\showHide.js" />
+    <Content Include="resources\jquery\src\css\support.js" />
+    <Content Include="resources\jquery\src\css\var\cssExpand.js" />
+    <Content Include="resources\jquery\src\css\var\getStyles.js" />
+    <Content Include="resources\jquery\src\css\var\isHiddenWithinTree.js" />
+    <Content Include="resources\jquery\src\css\var\rboxStyle.js" />
+    <Content Include="resources\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="resources\jquery\src\css\var\swap.js" />
+    <Content Include="resources\jquery\src\data.js" />
+    <Content Include="resources\jquery\src\data\Data.js" />
+    <Content Include="resources\jquery\src\data\var\acceptData.js" />
+    <Content Include="resources\jquery\src\data\var\dataPriv.js" />
+    <Content Include="resources\jquery\src\data\var\dataUser.js" />
+    <Content Include="resources\jquery\src\deferred.js" />
+    <Content Include="resources\jquery\src\deferred\exceptionHook.js" />
+    <Content Include="resources\jquery\src\deprecated.js" />
+    <Content Include="resources\jquery\src\dimensions.js" />
+    <Content Include="resources\jquery\src\effects.js" />
+    <Content Include="resources\jquery\src\effects\animatedSelector.js" />
+    <Content Include="resources\jquery\src\effects\Tween.js" />
+    <Content Include="resources\jquery\src\event.js" />
+    <Content Include="resources\jquery\src\event\ajax.js" />
+    <Content Include="resources\jquery\src\event\alias.js" />
+    <Content Include="resources\jquery\src\event\focusin.js" />
+    <Content Include="resources\jquery\src\event\support.js" />
+    <Content Include="resources\jquery\src\event\trigger.js" />
+    <Content Include="resources\jquery\src\exports\amd.js" />
+    <Content Include="resources\jquery\src\exports\global.js" />
+    <Content Include="resources\jquery\src\jquery.js" />
+    <Content Include="resources\jquery\src\manipulation.js" />
+    <Content Include="resources\jquery\src\manipulation\buildFragment.js" />
+    <Content Include="resources\jquery\src\manipulation\getAll.js" />
+    <Content Include="resources\jquery\src\manipulation\setGlobalEval.js" />
+    <Content Include="resources\jquery\src\manipulation\support.js" />
+    <Content Include="resources\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="resources\jquery\src\manipulation\var\rscriptType.js" />
+    <Content Include="resources\jquery\src\manipulation\var\rtagName.js" />
+    <Content Include="resources\jquery\src\manipulation\wrapMap.js" />
+    <Content Include="resources\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="resources\jquery\src\offset.js" />
+    <Content Include="resources\jquery\src\queue.js" />
+    <Content Include="resources\jquery\src\queue\delay.js" />
+    <Content Include="resources\jquery\src\selector-native.js" />
+    <Content Include="resources\jquery\src\selector-sizzle.js" />
+    <Content Include="resources\jquery\src\selector.js" />
+    <Content Include="resources\jquery\src\serialize.js" />
+    <Content Include="resources\jquery\src\traversing.js" />
+    <Content Include="resources\jquery\src\traversing\findFilter.js" />
+    <Content Include="resources\jquery\src\traversing\var\dir.js" />
+    <Content Include="resources\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="resources\jquery\src\traversing\var\siblings.js" />
+    <Content Include="resources\jquery\src\var\arr.js" />
+    <Content Include="resources\jquery\src\var\class2type.js" />
+    <Content Include="resources\jquery\src\var\concat.js" />
+    <Content Include="resources\jquery\src\var\document.js" />
+    <Content Include="resources\jquery\src\var\documentElement.js" />
+    <Content Include="resources\jquery\src\var\fnToString.js" />
+    <Content Include="resources\jquery\src\var\getProto.js" />
+    <Content Include="resources\jquery\src\var\hasOwn.js" />
+    <Content Include="resources\jquery\src\var\indexOf.js" />
+    <Content Include="resources\jquery\src\var\isFunction.js" />
+    <Content Include="resources\jquery\src\var\isWindow.js" />
+    <Content Include="resources\jquery\src\var\ObjectFunctionString.js" />
+    <Content Include="resources\jquery\src\var\pnum.js" />
+    <Content Include="resources\jquery\src\var\push.js" />
+    <Content Include="resources\jquery\src\var\rcssNum.js" />
+    <Content Include="resources\jquery\src\var\rnothtmlwhite.js" />
+    <Content Include="resources\jquery\src\var\slice.js" />
+    <Content Include="resources\jquery\src\var\support.js" />
+    <Content Include="resources\jquery\src\var\toString.js" />
+    <Content Include="resources\jquery\src\wrap.js" />
+    <Content Include="resources\js\bootstrap-datetimepicker.js" />
+    <Content Include="resources\js\main.js" />
+    <Content Include="resources\js\moment.js" />
+    <Content Include="resources\login\css\font-awesome.min.css" />
+    <Content Include="resources\login\css\style.css" />
+    <Content Include="resources\login\fonts\fontawesome-webfont.svg" />
+    <Content Include="resources\login\images\bg.jpg" />
+    <Content Include="resources\login\images\tick.png" />
+    <Content Include="resources\media\9606031aabebde32fa96edeff071a132.jpg" />
+    <Content Include="resources\vendor\animsition\animsition.min.css" />
+    <Content Include="resources\vendor\animsition\animsition.min.js" />
+    <Content Include="resources\vendor\bootstrap-4.1\bootstrap.min.css" />
+    <Content Include="resources\vendor\bootstrap-4.1\bootstrap.min.js" />
+    <Content Include="resources\vendor\bootstrap-4.1\popper.min.js" />
+    <Content Include="resources\vendor\bootstrap-progressbar\bootstrap-progressbar-3.3.4.min.css" />
+    <Content Include="resources\vendor\bootstrap-progressbar\bootstrap-progressbar.min.js" />
+    <Content Include="resources\vendor\chartjs\Chart.bundle.min.js" />
+    <Content Include="resources\vendor\circle-progress\circle-progress.js" />
+    <Content Include="resources\vendor\circle-progress\circle-progress.min.js" />
+    <Content Include="resources\vendor\countdown\countdowntime.js" />
+    <Content Include="resources\vendor\countdown\jquery.countdown.min.js" />
+    <Content Include="resources\vendor\countdown\moment-timezone-with-data.min.js" />
+    <Content Include="resources\vendor\countdown\moment-timezone.min.js" />
+    <Content Include="resources\vendor\countdown\moment.min.js" />
+    <Content Include="resources\vendor\counter-up\jquery.counterup.min.js" />
+    <Content Include="resources\vendor\counter-up\jquery.waypoints.min.js" />
+    <Content Include="resources\vendor\counter-up\waypoints.min.js" />
+    <Content Include="resources\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="resources\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="resources\vendor\font-awesome-4.7\css\font-awesome.css" />
+    <Content Include="resources\vendor\font-awesome-4.7\css\font-awesome.min.css" />
+    <Content Include="resources\vendor\font-awesome-4.7\fonts\fontawesome-webfont.svg" />
+    <Content Include="resources\vendor\font-awesome-4.7\HELP-US-OUT.txt" />
+    <Content Include="resources\vendor\font-awesome-5\css\fontawesome-all.min.css" />
+    <Content Include="resources\vendor\font-awesome-5\webfonts\fa-brands-400.svg" />
+    <Content Include="resources\vendor\font-awesome-5\webfonts\fa-regular-400.svg" />
+    <Content Include="resources\vendor\font-awesome-5\webfonts\fa-solid-900.svg" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\CHANGELOG.txt" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\CONTRIBUTING.txt" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\fullcalendar.css" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\fullcalendar.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\fullcalendar.min.css" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\fullcalendar.min.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\fullcalendar.print.css" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\fullcalendar.print.min.css" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\gcal.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\gcal.min.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\lib\moment.min.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\LICENSE.txt" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale-all.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\af.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\ar-dz.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\ar-kw.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\ar-ly.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\ar-ma.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\ar-sa.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\ar-tn.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\ar.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\be.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\bg.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\bs.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\ca.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\cs.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\da.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\de-at.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\de-ch.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\de.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\el.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\en-au.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\en-ca.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\en-gb.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\en-ie.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\en-nz.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\es-do.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\es-us.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\es.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\et.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\eu.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\fa.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\fi.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\fr-ca.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\fr-ch.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\fr.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\gl.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\he.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\hi.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\hr.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\hu.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\id.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\is.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\it.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\ja.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\ka.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\kk.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\ko.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\lb.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\lt.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\lv.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\mk.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\ms-my.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\ms.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\nb.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\nl-be.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\nl.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\nn.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\pl.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\pt-br.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\pt.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\ro.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\ru.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\sk.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\sl.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\sq.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\sr-cyrl.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\sr.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\sv.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\th.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\tr.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\uk.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\vi.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\zh-cn.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\zh-hk.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\locale\zh-tw.js" />
+    <Content Include="resources\vendor\fullcalendar-3.10.0\README.txt" />
+    <Content Include="resources\vendor\jquery-3.2.1.min.js" />
+    <Content Include="resources\vendor\jquery-ui.min.js" />
+    <Content Include="resources\vendor\lightbox2\dist\css\lightbox.css" />
+    <Content Include="resources\vendor\lightbox2\dist\images\close.png" />
+    <Content Include="resources\vendor\lightbox2\dist\images\loading.gif" />
+    <Content Include="resources\vendor\lightbox2\dist\images\next.png" />
+    <Content Include="resources\vendor\lightbox2\dist\images\prev.png" />
+    <Content Include="resources\vendor\lightbox2\dist\js\lightbox-plus-jquery.js" />
+    <Content Include="resources\vendor\lightbox2\dist\js\lightbox-plus-jquery.min.js" />
+    <Content Include="resources\vendor\lightbox2\dist\js\lightbox.js" />
+    <Content Include="resources\vendor\lightbox2\dist\js\lightbox.min.js" />
+    <Content Include="resources\vendor\lightbox2\src\css\lightbox.css" />
+    <Content Include="resources\vendor\lightbox2\src\images\close.png" />
+    <Content Include="resources\vendor\lightbox2\src\images\loading.gif" />
+    <Content Include="resources\vendor\lightbox2\src\images\next.png" />
+    <Content Include="resources\vendor\lightbox2\src\images\prev.png" />
+    <Content Include="resources\vendor\lightbox2\src\js\lightbox.js" />
+    <Content Include="resources\vendor\mdi-font\css\material-design-iconic-font.css" />
+    <Content Include="resources\vendor\mdi-font\css\material-design-iconic-font.min.css" />
+    <Content Include="resources\vendor\mdi-font\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="resources\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="resources\vendor\perfect-scrollbar\perfect-scrollbar.js" />
+    <Content Include="resources\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="resources\vendor\progressbar\progressbar.js" />
+    <Content Include="resources\vendor\progressbar\progressbar.min.js" />
+    <Content Include="resources\vendor\select2\select2.min.css" />
+    <Content Include="resources\vendor\select2\select2.min.js" />
+    <Content Include="resources\vendor\slick\ajax-loader.gif" />
+    <Content Include="resources\vendor\slick\fonts\slick.svg" />
+    <Content Include="resources\vendor\slick\slick-theme.css" />
+    <Content Include="resources\vendor\slick\slick.css" />
+    <Content Include="resources\vendor\slick\slick.js" />
+    <Content Include="resources\vendor\slick\slick.min.js" />
+    <Content Include="resources\vendor\smk-accordion\accordion.css" />
+    <Content Include="resources\vendor\smk-accordion\accordion.js" />
+    <Content Include="resources\vendor\smk-accordion\accordion.min.js" />
+    <Content Include="resources\vendor\sweetalert\sweetalert.min.js" />
+    <Content Include="resources\vendor\vector-map\jquery.vmap.brazil.js" />
+    <Content Include="resources\vendor\vector-map\jquery.vmap.europe.js" />
+    <Content Include="resources\vendor\vector-map\jquery.vmap.france.js" />
+    <Content Include="resources\vendor\vector-map\jquery.vmap.germany.js" />
+    <Content Include="resources\vendor\vector-map\jquery.vmap.js" />
+    <Content Include="resources\vendor\vector-map\jquery.vmap.min.js" />
+    <Content Include="resources\vendor\vector-map\jquery.vmap.russia.js" />
+    <Content Include="resources\vendor\vector-map\jquery.vmap.sampledata.js" />
+    <Content Include="resources\vendor\vector-map\jquery.vmap.usa.js" />
+    <Content Include="resources\vendor\vector-map\jquery.vmap.world.js" />
+    <Content Include="resources\vendor\vector-map\jqvmap.min.css" />
+    <Content Include="resources\vendor\wow\animate.css" />
+    <Content Include="resources\vendor\wow\wow.min.js" />
+    <Content Include="resources\vue.js" />
+    <Content Include="resources\vue.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="resources\login\fonts\fontawesome-webfont.eot" />
+    <Content Include="resources\login\fonts\fontawesome-webfont.ttf" />
+    <Content Include="resources\login\fonts\fontawesome-webfont.woff" />
+    <Content Include="resources\login\fonts\fontawesome-webfont.woff2" />
+    <Content Include="resources\login\fonts\FontAwesome.otf" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-100.eot" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-100.ttf" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-100.woff" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-100.woff2" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-100italic.eot" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-100italic.ttf" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-100italic.woff" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-100italic.woff2" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-200.eot" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-200.ttf" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-200.woff" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-200.woff2" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-200italic.eot" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-200italic.ttf" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-200italic.woff" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-200italic.woff2" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-300.eot" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-300.ttf" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-300.woff" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-300.woff2" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-300italic.eot" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-300italic.ttf" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-300italic.woff" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-300italic.woff2" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-500.eot" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-500.ttf" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-500.woff" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-500.woff2" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-500italic.eot" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-500italic.ttf" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-500italic.woff" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-500italic.woff2" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-600.eot" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-600.ttf" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-600.woff" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-600.woff2" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-600italic.eot" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-600italic.ttf" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-600italic.woff" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-600italic.woff2" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-700.eot" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-700.ttf" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-700.woff" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-700.woff2" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-700italic.eot" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-700italic.ttf" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-700italic.woff" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-700italic.woff2" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-800.eot" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-800.ttf" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-800.woff" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-800.woff2" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-800italic.eot" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-800italic.ttf" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-800italic.woff" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-800italic.woff2" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-900.eot" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-900.ttf" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-900.woff" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-900.woff2" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-900italic.eot" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-900italic.ttf" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-900italic.woff" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-900italic.woff2" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-italic.eot" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-italic.ttf" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-italic.woff" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-italic.woff2" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-regular.eot" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-regular.ttf" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-regular.woff" />
+    <Content Include="resources\fonts\poppins\poppins-v5-latin-regular.woff2" />
+    <Content Include="resources\vendor\font-awesome-4.7\fonts\fontawesome-webfont.eot" />
+    <Content Include="resources\vendor\font-awesome-4.7\fonts\fontawesome-webfont.ttf" />
+    <Content Include="resources\vendor\font-awesome-4.7\fonts\fontawesome-webfont.woff" />
+    <Content Include="resources\vendor\font-awesome-4.7\fonts\fontawesome-webfont.woff2" />
+    <Content Include="resources\vendor\font-awesome-4.7\fonts\FontAwesome.otf" />
+    <Content Include="resources\vendor\font-awesome-5\webfonts\fa-brands-400.eot" />
+    <Content Include="resources\vendor\font-awesome-5\webfonts\fa-brands-400.ttf" />
+    <Content Include="resources\vendor\font-awesome-5\webfonts\fa-brands-400.woff" />
+    <Content Include="resources\vendor\font-awesome-5\webfonts\fa-brands-400.woff2" />
+    <Content Include="resources\vendor\font-awesome-5\webfonts\fa-regular-400.eot" />
+    <Content Include="resources\vendor\font-awesome-5\webfonts\fa-regular-400.ttf" />
+    <Content Include="resources\vendor\font-awesome-5\webfonts\fa-regular-400.woff" />
+    <Content Include="resources\vendor\font-awesome-5\webfonts\fa-regular-400.woff2" />
+    <Content Include="resources\vendor\font-awesome-5\webfonts\fa-solid-900.eot" />
+    <Content Include="resources\vendor\font-awesome-5\webfonts\fa-solid-900.ttf" />
+    <Content Include="resources\vendor\font-awesome-5\webfonts\fa-solid-900.woff" />
+    <Content Include="resources\vendor\font-awesome-5\webfonts\fa-solid-900.woff2" />
+    <Content Include="resources\vendor\lightbox2\dist\js\lightbox-plus-jquery.min.map" />
+    <Content Include="resources\vendor\lightbox2\dist\js\lightbox.min.map" />
+    <Content Include="resources\vendor\mdi-font\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="resources\vendor\mdi-font\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="resources\vendor\mdi-font\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="resources\vendor\mdi-font\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="resources\vendor\slick\config.rb" />
+    <Content Include="resources\vendor\slick\fonts\slick.eot" />
+    <Content Include="resources\vendor\slick\fonts\slick.ttf" />
+    <Content Include="resources\vendor\slick\fonts\slick.woff" />
+    <Content Include="resources\vendor\slick\slick-theme.less" />
+    <Content Include="resources\vendor\slick\slick-theme.scss" />
+    <Content Include="resources\vendor\slick\slick.less" />
+    <Content Include="resources\vendor\slick\slick.scss" />
+    <Content Include="resources\jquery\.bower.json" />
+    <Content Include="resources\jquery\bower.json" />
+    <Content Include="resources\jquery\dist\jquery.min.map" />
+    <Content Include="resources\jquery\dist\jquery.slim.min.map" />
+    <Content Include="resources\jquery\external\sizzle\dist\sizzle.min.map" />
+    <Content Include="resources\jquery\README.md" />
+    <Content Include="resources\jquery\src\.eslintrc.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60070</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59756/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,16 @@
+F:\Project\ManagerAccount\ManagerAccount.Infrastructure\bin\Debug\ManagerAccount.Infrastructure.dll.config
+F:\Project\ManagerAccount\ManagerAccount.Infrastructure\bin\Debug\ManagerAccount.Infrastructure.dll
+F:\Project\ManagerAccount\ManagerAccount.Infrastructure\bin\Debug\ManagerAccount.Infrastructure.pdb
+F:\Project\ManagerAccount\ManagerAccount.Infrastructure\bin\Debug\EntityFramework.dll
+F:\Project\ManagerAccount\ManagerAccount.Infrastructure\bin\Debug\EntityFramework.SqlServer.dll
+F:\Project\ManagerAccount\ManagerAccount.Infrastructure\bin\Debug\Newtonsoft.Json.dll
+F:\Project\ManagerAccount\ManagerAccount.Infrastructure\bin\Debug\EntityFramework.xml
+F:\Project\ManagerAccount\ManagerAccount.Infrastructure\bin\Debug\EntityFramework.SqlServer.xml
+F:\Project\ManagerAccount\ManagerAccount.Infrastructure\bin\Debug\Newtonsoft.Json.xml
+F:\Project\ManagerAccount\ManagerAccount.Infrastructure\obj\Debug\ManagerAccount.Infrastructure.csprojAssemblyReference.cache
+F:\Project\ManagerAccount\ManagerAccount.Infrastructure\obj\Debug\ManagerAccount.Infrastructure.csproj.CoreCompileInputs.cache
+F:\Project\ManagerAccount\ManagerAccount.Infrastructure\obj\Debug\ManagerAccount.Infrastructure.csproj.CopyComplete
+F:\Project\ManagerAccount\ManagerAccount.Infrastructure\obj\Debug\ManagerAccount.Infrastructure.dll
+F:\Project\ManagerAccount\ManagerAccount.Infrastructure\obj\Debug\ManagerAccount.Infrastructure.pdb
+F:\Project\ManagerAccount\ManagerAccount.Infrastructure\bin\Debug\System.ValueTuple.dll
+F:\Project\ManagerAccount\ManagerAccount.Infrastructure\bin\Debug\System.ValueTuple.xml

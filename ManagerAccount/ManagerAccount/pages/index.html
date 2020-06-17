@@ -1,0 +1,102 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quản lý Nhân Sự</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+
+    <!-- Custom Theme files -->
+    <link href="../resources/login/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../resources/login/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- jQuery 3 -->
+    <script src="../resources/jquery/dist/jquery.min.js"></script>
+    <!-- //Custom Theme files -->
+    <!-- Load Vue followed by BootstrapVue -->
+    <script src="../resources/vue.min.js"></script>
+    <script src="../resources/bootstrap-vue.min.js"></script>
+    <!-- Load the following for BootstrapVueIcons support -->
+    <script src="../resources/bootstrap-vue-icons.min.js"></script>
+    <script src="../resources/axios.min.js"></script>
+    <style>
+        .alert {
+            position: relative;
+            padding: .75rem 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+        }
+
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- main -->
+    <div class="w3layouts-main" id="app">
+        <div class="bg-layer">
+            <h1></h1>
+            <div class="header-main">
+                <div class="main-icon">
+                    <span class="fa fa-eercast"></span>
+                </div>
+                <div class="alert alert-danger" role="alert" v-show="disable">
+                    {{ msgAlert }}
+                </div>
+                <div class="header-left-bottom">
+                    <form method="get" action="javascrit:;">
+                        <div class="icon1">
+                            <span class="fa fa-user"></span>
+                            <input type="email" v-model="templateItem.Mail" placeholder="Email" required />
+                        </div>
+                        <div class="icon1">
+                            <span class="fa fa-lock"></span>
+                            <input type="password" v-model="templateItem.PassWord" placeholder="Mật khẩu" required />
+                        </div>
+                        <div class="login-check">
+                            <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i> Ghi nhớ tài khoản đăng nhập</label>
+                        </div>
+                        <div class="bottom">
+                            <button @click="login" class="btn">Đăng nhập</button>
+                        </div>
+                        <div class="links">
+                            <p><a href="#">Quên mật khẩu?</a></p>
+                            <p class="right"><a href="#">Đăng ký</a></p>
+                            <div class="clear"></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="social">
+                    <ul>
+                        <li>Đăng nhập bằng : </li>
+                        <li><a href="#" class="facebook"><span class="fa fa-facebook"></span></a></li>
+                        <li><a href="#" class="twitter"><span class="fa fa-twitter"></span></a></li>
+                        <li><a href="#" class="google"><span class="fa fa-google-plus"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- //main -->
+    <script>
+        $.getScript("common/serviceAPIs.js");
+        $.getScript("login/login.js");
+    </script>
+</body>
+</html>

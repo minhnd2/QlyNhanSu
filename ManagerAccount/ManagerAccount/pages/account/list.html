@@ -1,0 +1,410 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <!-- Title Page-->
+    <title>Quản lý nhân viên</title>
+    <!-- Fontfaces CSS-->
+    <link href="../../resources/css/font-face.css" rel="stylesheet" media="all">
+    <link href="../../resources/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="../../resources/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="../../resources/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <!-- Bootstrap CSS-->
+    <link href="../../resources/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <!-- Vendor CSS-->
+    <!--<link href="../../resources/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">-->
+    <link href="../../resources/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="../../resources/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="../../resources/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="../../resources/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="../../resources/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="../../resources/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <!-- Main CSS-->
+    <link href="../../resources/css/theme.css" rel="stylesheet" media="all">
+
+    <!-- jQuery 3 -->
+    <script src="../../resources/jquery/dist/jquery.min.js"></script>
+    <!-- //Custom Theme files -->
+    <!-- Load Vue followed by BootstrapVue -->
+    <script src="../../resources/vue.min.js"></script>
+    <script src="../../resources/bootstrap-vue.min.js"></script>
+    <!-- Load the following for BootstrapVueIcons support -->
+    <script src="../../resources/bootstrap-vue-icons.min.js"></script>
+    <script src="../../resources/axios.min.js"></script>
+
+    <!-- Jquery JS-->
+    <script src="../../resources/vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="../../resources/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="../../resources/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="../../resources/vendor/slick/slick.min.js"></script>
+    <script src="../../resources/vendor/wow/wow.min.js"></script>
+    <script src="../../resources/vendor/animsition/animsition.min.js"></script>
+    <script src="../../resources/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="../../resources/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="../../resources/vendor/counter-up/jquery.counterup.min.js"></script>
+    <script src="../../resources/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="../../resources/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../../resources/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="../../resources/vendor/select2/select2.min.js"></script>
+    <!-- Main JS-->
+    <script src="../../resources/js/main.js"></script>
+
+    <script src="../../resources/moment/min/moment.min.js"></script>
+
+    <script type='text/javascript' src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
+</head>
+<body class="animsition">
+    <div id="app">
+        <div class="page-wrapper">
+            <!-- MENU SIDEBAR-->
+            <aside class="menu-sidebar d-none d-lg-block">
+                <div class="logo">
+
+                </div>
+                <div class="menu-sidebar__content js-scrollbar1">
+                    <nav class="navbar-sidebar">
+                        <ul class="list-unstyled navbar__list">
+
+                            <li class="active">
+                                <a href="list.html">
+                                    <i class="fas fa-users"></i>Quản lý Nhân Viên
+                                </a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+            <!-- END MENU SIDEBAR-->
+            <!-- PAGE CONTAINER-->
+            <div class="page-container">
+                <!-- HEADER DESKTOP-->
+                <header class="header-desktop">
+                    <div class="section__content section__content--p30">
+                        <div class="container-fluid">
+                            <div class="header-wrap">
+                                <form class="form-header" action="" method="POST"></form>
+                                <div class="header-button">
+
+                                    <div class="account-wrap">
+                                        <div class="account-item clearfix js-item-menu">
+                                            <div class="image">
+                                                <img src="../../resources/images/icon/avatar-06.jpg" alt="John Doe" />
+                                            </div>
+                                            <div class="content">
+                                                <a class="js-acc-btn" href="#">Minh Nguyễn</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <!-- END HEADER DESKTOP-->
+                <!-- MAIN CONTENT-->
+                <div class="main-content">
+                    <div class="section__content section__content--p30">
+                        <div class="container-fluid">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <!-- DATA TABLE -->
+                                    <h3 class="title-5 m-b-35">Quản lý Nhân Viên</h3>
+                                    <div class="table-data__tool">
+                                        <div class="table-data__tool-left">
+                                            <div class="rs-select2--light rs-select2--md">
+                                                <b-form-input v-model="templateSearch.Name" type="text" placeholder="Nhập vào Tên..."></b-form-input>
+                                            </div>
+                                            <div class="rs-select2--light rs-select2--md">
+                                                <b-form-input v-model="templateSearch.Mail" type="text" placeholder="Nhập vào Mail..."></b-form-input>
+                                            </div>
+                                            <div class="rs-select2--light rs-select2--md">
+                                                <b-form-input v-model="templateSearch.Phone" type="text" placeholder="Số điện thoại..."></b-form-input>
+                                            </div>
+                                            <button @click="search" class="au-btn-filter">
+                                                <i class="zmdi zmdi-filter-list"></i> Tìm kiếm
+                                            </button>
+                                        </div>
+                                        <div class="table-data__tool-right">
+                                            <button @click="add" class="au-btn au-btn-icon au-btn--green au-btn--small" data-toggle="modal" data-target="#modalCreate">
+                                                <i class="zmdi zmdi-plus"></i>Thêm mới
+                                            </button>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="table-responsive table-responsive-data2">
+                                        <table class="table table-data2">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <label class="au-checkbox">
+                                                            <input type="checkbox">
+                                                            <span class="au-checkmark"></span>
+                                                        </label>
+                                                    </th>
+                                                    <th>STT</th>
+                                                    <th>Tên</th>
+                                                    <th>Email</th>
+                                                    <th>Số điện thoại</th>
+                                                    <th>Ngày Tạo</th>
+                                                    <th>Trạng thái</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <template v-for="(item, index) in items">
+                                                    <tr class="tr-shadow">
+                                                        <td>
+                                                            <label class="au-checkbox">
+                                                                <input type="checkbox">
+                                                                <span class="au-checkmark"></span>
+                                                            </label>
+                                                        </td>
+                                                        <td>{{ item.Index }}</td>
+                                                        <td>{{ item.Name }}</td>
+                                                        <td>
+                                                            <span class="block-email">{{ item.Mail }}</span>
+                                                        </td>
+                                                        <td class="desc">{{ item.Phone }}</td>
+                                                        <td>{{ item.CreateDate | formatDate }}</td>
+                                                        <td>
+                                                            <span v-show="item.IsStatus" class="status--process">Hoạt động</span>
+                                                            <span v-show="!item.IsStatus" class="status--denied">Đã Ngừng</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="table-data-feature">
+                                                                <button class="item" @click="edit(item, index, $event.target)" data-toggle="modal" data-target="#modalCreate" title="Edit">
+                                                                    <i class="zmdi zmdi-edit"></i>
+                                                                </button>
+                                                                <button class="item" @click="edit(item, index, $event.target)" data-toggle="modal" data-target="#modalViewDelete" title="Delete">
+                                                                    <i class="zmdi zmdi-delete"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="spacer"></tr>
+                                                </template>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- END DATA TABLE -->
+                                    <template>
+
+                                        <b-row>
+                                            <b-col md="12" class="my-1">
+                                                <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="my-0 pull-right" />
+                                            </b-col>
+                                        </b-row>
+                                    </template>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="copyright">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="mediumModalLabel">{{isAddNew ? 'Thêm mới' : 'Chỉnh Sửa'}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="javascript:;" class="form-horizontal">
+                        <div class="modal-body">
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="hf-name" class=" form-control-label">Tên</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <b-form-input id="hf-name" @blur="inputNamme = true" v-model="templateItem.Name" type="text" required placeholder="Enter Name..."></b-form-input>
+                                    <span v-show="inputNamme && (templateItem.Name == null || templateItem.Name == '')" class="help-block status--denied">Nhập vào nội dung tên</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="hf-email" class=" form-control-label">Email</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <b-form-input id="hf-email" @blur="inputMail = true" v-model="templateItem.Mail" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required placeholder="Enter email..."></b-form-input>
+                                    <span v-show="inputMail && (templateItem.Mail == null || templateItem.Mail == '')" class="help-block status--denied">Nhập vào nội dung email</span>
+                                </div>
+                            </div>
+                            <div class="row form-group" v-show="isAddNew">
+                                <div class="col col-md-3">
+                                    <label for="hf-pass" class=" form-control-label">Mật khẩu</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <b-form-input id="hf-pass" @blur="inputPass = true" v-model="templateItem.PassWord" type="password" required placeholder="Enter password..."></b-form-input>
+                                    <span v-show="inputPass && (templateItem.PassWord == null || templateItem.PassWord == '')" class="help-block status--denied">Nhập vào mật khẩu</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="hf-phone" class=" form-control-label">Số điện thoại</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <b-form-input id="hf-phone" @blur="inputPhone = true" v-model="templateItem.Phone" type="text" autocomplete="off" pattern="^\d{4} \d{3} \d{3}$" required placeholder="xxxx_xxx_xxx"></b-form-input>
+                                    <span v-show="inputPhone && (templateItem.Phone == null || templateItem.Phone == '')" class="help-block status--denied">Nhập vào số điện thoại</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                            <button v-on:click="save" type="submit" class="btn btn-primary">Lưu vào</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalConfirmSave" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="mediumModalLabel">Xác nhận {{isAddNew ? 'Thêm mới' : 'Chỉnh Sửa'}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="javascript:;" class="form-horizontal">
+                        <div class="modal-body">
+                            <div class="table-responsive table-responsive-data2">
+                                <table class="table table-data2">
+                                    <thead>
+                                        <tr>
+                                            <th>STT</th>
+                                            <th>Tên</th>
+                                            <th>Email</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Ngày Tạo</th>
+                                            <th>Trạng thái</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="tr-shadow">
+                                            <td>1</td>
+                                            <td>{{ templateItem.Name }}</td>
+                                            <td>
+                                                <span class="block-email">{{ templateItem.Mail }}</span>
+                                            </td>
+                                            <td class="desc">{{ templateItem.Phone }}</td>
+                                            <td>{{ templateItem.CreateDate }}</td>
+                                            <td>
+                                                <span v-show="templateItem.IsStatus" class="status--process">Hoạt động</span>
+                                                <span v-show="!templateItem.IsStatus" class="status--denied">Đã Ngừng</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="spacer"></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                            <button v-on:click="confirmSave" type="button" class="btn btn-primary">Xác nhận</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalViewDelete" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="mediumModalLabel">Xác nhận Xóa bản ghi</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="javascript:;" class="form-horizontal">
+                        <div class="modal-body">
+                            <div class="table-responsive table-responsive-data2">
+                                <table class="table table-data2">
+                                    <thead>
+                                        <tr>
+                                            <th>STT</th>
+                                            <th>Tên</th>
+                                            <th>Email</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Ngày Tạo</th>
+                                            <th>Trạng thái</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="tr-shadow">
+                                            <td>1</td>
+                                            <td>{{ templateItem.Name }}</td>
+                                            <td>
+                                                <span class="block-email">{{ templateItem.Mail }}</span>
+                                            </td>
+                                            <td class="desc">{{ templateItem.Phone }}</td>
+                                            <td>{{ templateItem.CreateDate }}</td>
+                                            <td>
+                                                <span v-show="templateItem.IsStatus" class="status--process">Hoạt động</span>
+                                                <span v-show="!templateItem.IsStatus" class="status--denied">Đã Ngừng</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="spacer"></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                            <button v-on:click="deleteAccount" type="button" class="btn btn-danger">Xóa</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- modal static -->
+        <div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
+             data-backdrop="static">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticModalLabel">Xác nhận xóa</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Bạn có muốn xóa bản ghi này không!
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                        <button v-on:click="confirmDel" type="button" class="btn btn-primary">Xác nhận</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end modal static -->
+        <script>
+            $.getScript("../common/serviceAPIs.js");
+            $.getScript("list.js");
+        </script>
+    </div>
+</body>
+</html>
+<!-- end document-->
