@@ -1,0 +1,50 @@
+<div class="w3layouts-main" id="app">
+  <div class="bg-layer">
+    <h1></h1>
+    <div class="header-main">
+      <div class="main-icon">
+        <span class="fa fa-eercast"></span>
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="disable">
+        {{ msgAlert }}
+      </div>
+      <app-field-error-display [displayError]="isFieldValid('mail')" errorMsg="Vui lòng điền đầy đủ email!">
+      </app-field-error-display>
+      <app-field-error-display [displayError]="isFieldValid('password') && !isFieldValid('mail')" errorMsg="Vui lòng điền vào mật khẩu!">
+      </app-field-error-display>
+      <div class="header-left-bottom">
+        <form (ngSubmit)="login()" [formGroup]="form">
+          <div class="icon1" [ngClass]="displayFieldCss('mail')">
+            <span class="fa fa-user"></span>
+            <input type="email" [(ngModel)]="loginItem.Mail" name="Mail" placeholder="Email" formControlName="mail" />
+          </div>
+          <div class="icon1" [ngClass]="displayFieldCss('password')">
+            <span class="fa fa-lock"></span>
+            <input type="password" [(ngModel)]="loginItem.PassWord" name="PassWord" placeholder="Mật khẩu" formControlName="password" />
+          </div>
+          <div class="login-check">
+            <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i> Ghi nhớ tài khoản đăng
+              nhập</label>
+          </div>
+          <div class="bottom">
+            <button class="btn">Đăng nhập</button>
+          </div>
+          <div class="links">
+            <p><a href="#">Quên mật khẩu?</a></p>
+            <p class="right"><a href="#">Đăng ký</a></p>
+            <div class="clear"></div>
+          </div>
+        </form>
+      </div>
+      <div class="social">
+        <ul>
+          <li>Đăng nhập bằng : </li>
+          <li><a href="#" class="facebook"><span class="fa fa-facebook"></span></a></li>
+          <li><a href="#" class="twitter"><span class="fa fa-twitter"></span></a></li>
+          <li><a href="#" class="google"><span class="fa fa-google-plus"></span></a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>

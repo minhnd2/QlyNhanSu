@@ -1,0 +1,367 @@
+<div class="page-wrapper">
+  <!-- MENU SIDEBAR-->
+  <aside class="menu-sidebar d-none d-lg-block">
+    <div class="logo">
+
+    </div>
+    <div class="menu-sidebar__content js-scrollbar1">
+      <nav class="navbar-sidebar">
+        <ul class="list-unstyled navbar__list">
+
+          <li>
+            <a routerLink="/index">
+              <i class="fas fa-home"></i>Trang chủ
+            </a>
+          </li>
+          <li class="active">
+            <a routerLink="/accounts">
+              <i class="fas fa-users"></i>Quản lý Nhân Viên
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+  </aside>
+  <!-- END MENU SIDEBAR-->
+  <!-- PAGE CONTAINER-->
+  <div class="page-container">
+    <!-- HEADER DESKTOP-->
+    <header class="header-desktop">
+      <div class="section__content section__content--p30">
+        <div class="container-fluid">
+          <div class="header-wrap">
+            <form class="form-header" action="" method="POST"></form>
+            <div class="header-button">
+
+              <div class="account-wrap">
+                <div class="account-item clearfix js-item-menu">
+                  <div class="image">
+                    <img src="../../assets/resources/images/icon/avatar-06.jpg" alt="John Doe" />
+                  </div>
+                  <div class="content">
+                    <a class="js-acc-btn" (click)="Logout()" href="">Minh Nguyễn</a>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- END HEADER DESKTOP-->
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+      <div class="section__content section__content--p30">
+        <div class="container-fluid">
+
+          <div class="row">
+            <div class="col-md-12">
+              <!-- DATA TABLE -->
+              <h3 class="title-5 m-b-35">Quản lý Nhân Viên</h3>
+              <div class="table-data__tool">
+                <div class="table-data__tool-left">
+                  <div class="rs-select2--light rs-select2--md">
+                    <!-- <b-form-input [(ngModel)]="templateSearch.Name" type="text" placeholder="Nhập vào Tên..."></b-form-input> -->
+                    <input type="text" [(ngModel)]="accountSearch.Name" class="form-control"
+                      placeholder="Nhập vào Tên...">
+                  </div>
+                  <div class="rs-select2--light rs-select2--md">
+                    <!-- <b-form-input [(ngModel)]="templateSearch.Mail" type="text" placeholder="Nhập vào Mail..."></b-form-input> -->
+                    <input type="text" [(ngModel)]="accountSearch.Mail" class="form-control"
+                      placeholder="Nhập vào Email...">
+                  </div>
+                  <div class="rs-select2--light rs-select2--md">
+                    <!-- <b-form-input [(ngModel)]="templateSearch.Phone" type="text" placeholder="Số điện thoại..."></b-form-input> -->
+                    <input type="text" [(ngModel)]="accountSearch.Phone" class="form-control"
+                      placeholder="Số điện thoại...">
+                  </div>
+                  <button (click)="search()" class="au-btn-filter">
+                    <i class="zmdi zmdi-filter-list"></i> Tìm kiếm
+                  </button>
+                </div>
+                <div class="table-data__tool-right">
+                  <button class="au-btn au-btn-icon au-btn--green au-btn--small" data-toggle="modal" (click)="add()"
+                    data-target="#modalCreate">
+                    <i class="zmdi zmdi-plus"></i>Thêm mới
+                  </button>
+
+                </div>
+              </div>
+
+              <div class="table-responsive table-responsive-data2">
+                <table class="table table-data2">
+                  <thead>
+                    <tr>
+                      <th>
+                        <label class="au-checkbox">
+                          <input type="checkbox">
+                          <span class="au-checkmark"></span>
+                        </label>
+                      </th>
+                      <th>STT</th>
+                      <th>Tên</th>
+                      <th>Email</th>
+                      <th>Số điện thoại</th>
+                      <th>Ngày Tạo</th>
+                      <th>Trạng thái</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <ng-container *ngFor="let item of accountsList">
+                      <tr class="tr-shadow">
+                        <td>
+                          <label class="au-checkbox">
+                            <input type="checkbox">
+                            <span class="au-checkmark"></span>
+                          </label>
+                        </td>
+                        <td>{{ item.Index }}</td>
+                        <td>{{ item.Name }}</td>
+                        <td>
+                          <span class="block-email">{{ item.Mail }}</span>
+                        </td>
+                        <td class="desc">{{ item.Phone }}</td>
+                        <td>{{ item.CreateDate | date: "dd/MM/yyyy hh:mm" }}</td>
+                        <td>
+                          <span *ngIf="item.IsStatus" class="status--process">Hoạt động</span>
+                          <span *ngIf="!item.IsStatus" class="status--denied">Đã Ngừng</span>
+                        </td>
+                        <td>
+                          <div class="table-data-feature">
+                            <button class="item" (click)="edit(item)" data-toggle="modal" data-target="#modalCreate"
+                              title="Edit">
+                              <i class="zmdi zmdi-edit"></i>
+                            </button>
+                            <button class="item" (click)="edit(item)" data-toggle="modal" data-target="#modalViewDelete"
+                              title="Delete">
+                              <i class="zmdi zmdi-delete"></i>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="spacer"></tr>
+                    </ng-container>
+                  </tbody>
+                </table>
+              </div>
+              <ngb-pagination class="d-flex justify-content-end" [collectionSize]="totalRow"
+                [page]="accountSearch.PageIndex" [pageSize]="accountSearch.PageSize" [boundaryLinks]="true"
+                (pageChange)="pageChange($event)"></ngb-pagination>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="copyright">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalCreate" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mediumModalLabel">{{isAddNew ? 'Thêm mới' : 'Chỉnh Sửa'}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form class="form-horizontal" [formGroup]="form">
+        <div class="modal-body">
+          <div class="row form-group">
+            <div class="col col-md-3">
+              <label for="hf-name" class=" form-control-label">Tên</label>
+            </div>
+            <div class="col-12 col-md-9">
+              <input id="hf-name" class="form-control" [(ngModel)]="accountItem.Name" name="name" formControlName="name"
+                type="text" required placeholder="Enter Name..." />
+              <span class="help-block status--denied">
+                <span *ngIf="isFieldValid('name')">Vui lòng nhập Tên!</span>
+              </span>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-3">
+              <label for="hf-email" class="form-control" class=" form-control-label">Email</label>
+            </div>
+            <div class="col-12 col-md-9">
+              <input id="hf-email" class="form-control" [(ngModel)]="accountItem.Mail" name="mail"
+                formControlName="mail" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required
+                placeholder="Enter email..." />
+              <span class="help-block status--denied">
+                <span *ngIf="isFieldValid('mail')">Vui lòng nhập đúng email!</span>
+              </span>
+            </div>
+          </div>
+          <div class="row form-group" *ngIf="isAddNew">
+            <div class="col col-md-3">
+              <label for="hf-pass" class=" form-control-label">Mật khẩu</label>
+            </div>
+            <div class="col-12 col-md-9">
+              <input id="hf-pass" class="form-control" [(ngModel)]="accountItem.PassWord" name="password"
+                formControlName="password" type="password" required placeholder="Enter password..." />
+              <span class="help-block status--denied">
+                <span *ngIf="isFieldValid('password')">Vui lòng nhập mật khẩu!</span>
+              </span>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-3">
+              <label for="hf-phone" class=" form-control-label">Số điện thoại</label>
+            </div>
+            <div class="col-12 col-md-9">
+              <input id="hf-phone" class="form-control" [(ngModel)]="accountItem.Phone" name="phone"
+                formControlName="phone" type="text" autocomplete="off" data-inputmask="'mask': '9999 999 999'"
+                required />
+              <span class="help-block status--denied">
+                <span *ngIf="isFieldValid('phone')">Vui lòng nhập đúng số điện thoại!</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+          <button (click)="save()" type="submit" class="btn btn-primary">Lưu vào</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalConfirmSave" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mediumModalLabel">Xác nhận {{isAddNew ? 'Thêm mới' : 'Chỉnh Sửa'}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="javascript:;" class="form-horizontal">
+        <div class="modal-body">
+          <div class="table-responsive table-responsive-data2">
+            <table class="table table-data2">
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Tên</th>
+                  <th>Email</th>
+                  <th>Số điện thoại</th>
+                  <th>Ngày Tạo</th>
+                  <th>Trạng thái</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="tr-shadow">
+                  <td>1</td>
+                  <td>{{ accountItem.Name }}</td>
+                  <td>
+                    <span class="block-email">{{ accountItem.Mail }}</span>
+                  </td>
+                  <td class="desc">{{ accountItem.Phone }}</td>
+                  <td>{{ accountItem.CreateDate | date: "dd/MM/yyyy hh:mm" }}</td>
+                  <td>
+                    <span *ngIf="accountItem.IsStatus" class="status--process">Hoạt động</span>
+                    <span *ngIf="!accountItem.IsStatus" class="status--denied">Đã Ngừng</span>
+                  </td>
+                </tr>
+                <tr class="spacer"></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+          <button (click)="confirmSave()" type="button" class="btn btn-primary">Xác nhận</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalViewDelete" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mediumModalLabel">Xác nhận Xóa bản ghi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="javascript:;" class="form-horizontal">
+        <div class="modal-body">
+          <div class="table-responsive table-responsive-data2">
+            <table class="table table-data2">
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Tên</th>
+                  <th>Email</th>
+                  <th>Số điện thoại</th>
+                  <th>Ngày Tạo</th>
+                  <th>Trạng thái</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="tr-shadow">
+                  <td>1</td>
+                  <td>{{ accountItem.Name }}</td>
+                  <td>
+                    <span class="block-email">{{ accountItem.Mail }}</span>
+                  </td>
+                  <td class="desc">{{ accountItem.Phone }}</td>
+                  <td>{{ accountItem.CreateDate | date: "dd/MM/yyyy hh:mm" }}</td>
+                  <td>
+                    <span *ngIf="accountItem.IsStatus" class="status--process">Hoạt động</span>
+                    <span *ngIf="!accountItem.IsStatus" class="status--denied">Đã Ngừng</span>
+                  </td>
+                </tr>
+                <tr class="spacer"></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+          <button (click)="deleteAccount()" type="button" class="btn btn-danger">Xóa</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel"
+  aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticModalLabel">Xác nhận xóa</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          Bạn có muốn xóa bản ghi này không!
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+        <button (click)="confirmDel()" type="button" class="btn btn-primary">Xác nhận</button>
+      </div>
+    </div>
+  </div>
+</div>
