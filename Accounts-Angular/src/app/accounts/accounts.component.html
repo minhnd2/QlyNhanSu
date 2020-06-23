@@ -119,7 +119,7 @@
                           </label>
                         </td>
                         <td>{{ item.Index }}</td>
-                        <td>{{ item.Name }}</td>
+                        <td><div [innerHtml]="item.Name"></div></td>
                         <td>
                           <span class="block-email">{{ item.Mail }}</span>
                         </td>
