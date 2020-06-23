@@ -64,17 +64,17 @@
                 <div class="table-data__tool-left">
                   <div class="rs-select2--light rs-select2--md">
                     <!-- <b-form-input [(ngModel)]="templateSearch.Name" type="text" placeholder="Nhập vào Tên..."></b-form-input> -->
-                    <input type="text" [(ngModel)]="accountSearch.Name" class="form-control"
+                    <input type="text" [(ngModel)]="accountSearch.Name" (keyup.enter)="search()" class="form-control"
                       placeholder="Nhập vào Tên...">
                   </div>
                   <div class="rs-select2--light rs-select2--md">
                     <!-- <b-form-input [(ngModel)]="templateSearch.Mail" type="text" placeholder="Nhập vào Mail..."></b-form-input> -->
-                    <input type="text" [(ngModel)]="accountSearch.Mail" class="form-control"
+                    <input type="text" [(ngModel)]="accountSearch.Mail" (keyup.enter)="search()" class="form-control"
                       placeholder="Nhập vào Email...">
                   </div>
                   <div class="rs-select2--light rs-select2--md">
                     <!-- <b-form-input [(ngModel)]="templateSearch.Phone" type="text" placeholder="Số điện thoại..."></b-form-input> -->
-                    <input type="text" [(ngModel)]="accountSearch.Phone" class="form-control"
+                    <input type="text" [(ngModel)]="accountSearch.Phone" (keyup.enter)="search()" class="form-control"
                       placeholder="Số điện thoại...">
                   </div>
                   <button (click)="search()" class="au-btn-filter">
