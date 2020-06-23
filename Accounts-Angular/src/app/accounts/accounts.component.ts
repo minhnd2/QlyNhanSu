@@ -9,7 +9,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 // npm install inputmask --save
 import * as Inputmask from "inputmask"
 
-declare var jQuery: any;
+declare var $: any;
 
 @Component({
   selector: 'app-accounts',
@@ -81,10 +81,8 @@ export class AccountsComponent implements OnInit {
 
   save() {
     if (this.form.valid) {
-      (function ($) {
-        $('#modalCreate').modal('hide');
-        $('#modalConfirmSave').modal('show');
-      })(jQuery);
+      $('#modalCreate').modal('hide');
+      $('#modalConfirmSave').modal('show');
     } else {
       this.validateAllFormFields(this.form);
     }
@@ -95,19 +93,15 @@ export class AccountsComponent implements OnInit {
     if (this.isAddNew) {
       this.accountService.insert(this.accountItem).subscribe(res => {
         this.search();
-        (function ($) {
-          $('#modalConfirmSave').modal('hide');
-        })(jQuery);
+        $('#modalConfirmSave').modal('hide');
       }, error => {
         console.log(error.error.Message);
       });
     }
-    else{
+    else {
       this.accountService.update(this.accountItem).subscribe(res => {
         this.search();
-        (function ($) {
-          $('#modalConfirmSave').modal('hide');
-        })(jQuery);
+        $('#modalConfirmSave').modal('hide');
       }, error => {
         console.log(error.error.Message);
       });
@@ -115,18 +109,14 @@ export class AccountsComponent implements OnInit {
   }
 
   deleteAccount() {
-    (function ($) {
-      $("#modalViewDelete").modal('hide');
-      $('#modalConfirmDelete').modal('show');
-    })(jQuery);
+    $("#modalViewDelete").modal('hide');
+    $('#modalConfirmDelete').modal('show');
   }
 
   confirmDel() {
     this.accountService.delete(this.accountItem).subscribe(res => {
       this.search();
-      (function ($) {
-        $('#modalConfirmDelete').modal('hide');
-      })(jQuery);
+      $('#modalConfirmDelete').modal('hide');
     }, error => {
       console.log(error.error.Message);
     });
